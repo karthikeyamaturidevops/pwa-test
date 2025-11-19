@@ -26,6 +26,12 @@ export default function InstallPWAButton() {
     return () => window.removeEventListener("beforeinstallprompt", handler);
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("appinstalled", () => {
+      alert("🎉 App Installed!\n\nOpen it from your Home Screen.");
+    });
+  }, []);
+
   const installApp = async () => {
     if (!deferredPrompt) return;
 
